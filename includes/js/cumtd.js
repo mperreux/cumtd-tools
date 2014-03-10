@@ -9,9 +9,19 @@ $(document).ready(function(){
 		stopid = $("#stopid").val();
 		$.getJSON("https://developer.cumtd.com/api/" + version + "/" +
 			format + "/GetDeparturesByStop?key=" + key + "&stop_id=" + stopid + "&count=" + count + "&callback=?", null, function (result) {
-				var departures = result.departures;
-				for (var i in departures) {
-					$("#departures").replaceWith("<p>" + departures[i].headsign + " in " + departures[i].expected_mins + " minutes." + "</p>");
+				if (result.status.code == 404){
+					$(".departures").html("Invalid Stop ID");
+				}
+				else {
+					var departures = result.departures;
+					if (departures.length === 0) {
+						$(".departures").html("There are no buses coming");
+					}
+					else {
+						for (var i in departures) {
+							$(".departures").html("<p>" + departures[i].headsign + " in " + departures[i].expected_mins + " minutes." + "</p>");
+						}
+					}
 				}
 			});
 	});
