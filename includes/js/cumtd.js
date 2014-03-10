@@ -18,8 +18,10 @@ $(document).ready(function(){
 						$(".departures").html("There are no buses coming");
 					}
 					else {
+						$(".departures").html("");
+
 						for (var i in departures) {
-							$(".departures").html("<p>" + departures[i].headsign + " in " + departures[i].expected_mins + " minutes." + "</p>");
+							$(".departures").append("<p>" + departures[i].headsign + " in " + departures[i].expected_mins + " minutes." + "</p>");
 						}
 					}
 				}
