@@ -49,22 +49,5 @@
     </div>
 
     <script type="text/javascript" src="includes/js/foundation.min.js"></script>
-	<!--<script>
-		var cumtdApp = angular.module('cumtdApp', []);
-		
-		cumtdApp.factory('cumtdFactory', function($http) {
-			return {
-				getDepartures: function (callback) {
-					$http.get('https://developer.cumtd.com/api/v2.2/JSON/GetDeparturesByStop?key=e6993fc11f154896b0debecd59023795&stop_id=iu&count=5').success(callback);
-				}
-			};
-		});
-		
-		cumtdApp.controller('cumtdController',function($scope, cumtdFactory) {
-			cumtdApp.getDepartures(funciton(results) {
-				$scope.buses = results.departures.headsign;
-			});
-		});
-	</script>-->
 </body>
 </html>
