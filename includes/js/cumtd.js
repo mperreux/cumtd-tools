@@ -21,7 +21,8 @@ $(document).ready(function(){
 						$(".departures").html("");
 
 						for (var i in departures) {
-							$(".departures").append("<p>" + departures[i].headsign + " in " + departures[i].expected_mins + " minutes." + "(bus " + departures[i].vehicle_id + ")</p>");
+							$(".departures").append("<p id='" + "departure" + i + "'>" + departures[i].headsign + " in " + departures[i].expected_mins + " minutes." + "(bus " + departures[i].vehicle_id + ")</p>");
+							$("#departure" + i).css("border-left", "20px solid #"+departures[i].route.route_color) ;
 						}
 					}
 				}
