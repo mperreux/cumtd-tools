@@ -1,30 +1,70 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>CUMTD Tools</title>
-<style type="text/css">
+
+<script src="includes/js/jquery.min.js" ></script>
+<!--CSS Files-------------------->
+<link rel="stylesheet" href="includes/css/normalize.css">
+<link rel="stylesheet" href="includes/css/foundation.css">
+
+<!--JS Files--------------------->
+<!--<script type="text/javascript" src="includes/js/angular.min.js"></script>-->
+<script type="text/javascript" src="includes/js/cumtd.js"></script>
+
+
+<!--<style type="text/css">
   html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { height: 100% }
-</style>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuiafjVJZCHfNiKc0loBpEn3GBgS7-A-I&sensor=false"></script>
-<script type="text/javascript">
-      google.maps.visualRefresh = true;
+  #map_canvas { height: 100% }
+</style>-->
 
-	  function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(40.108484,-88.228846),
-          zoom: 15
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 </head>
 
 <body>
-    <div id="map-canvas"></div>
+    <div class="row">
+    	<div class="large-12 columns">
+        	<h1>CUMTD Tools</h1>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="large-6 columns">
+			<h3>Get upcoming departure times at a stop</h3>
+			<p>Some stop IDs to try</p>
+			<ul>
+				<li>IT = Illinois terminal</li>
+				<li>IU = Illini Union</li>
+			</ul>
+			<form>
+				<label>Enter stop id
+					<input type="text" placeholder="enter stop" id="stopid"/>
+				</label>
+				<a href="#" id="getDepGo" class="button postfix">Go</a>
+			</form>
+        </div>
+		<div id="departures" class="large-6 columns">
+			
+		</div>
+    </div>
+
+    <script type="text/javascript" src="includes/js/foundation.min.js"></script>
+	<!--<script>
+		var cumtdApp = angular.module('cumtdApp', []);
+		
+		cumtdApp.factory('cumtdFactory', function($http) {
+			return {
+				getDepartures: function (callback) {
+					$http.get('https://developer.cumtd.com/api/v2.2/JSON/GetDeparturesByStop?key=e6993fc11f154896b0debecd59023795&stop_id=iu&count=5').success(callback);
+				}
+			};
+		});
+		
+		cumtdApp.controller('cumtdController',function($scope, cumtdFactory) {
+			cumtdApp.getDepartures(funciton(results) {
+				$scope.buses = results.departures.headsign;
+			});
+		});
+	</script>-->
 </body>
 </html>
