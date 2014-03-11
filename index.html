@@ -5,20 +5,17 @@
 <title>CUMTD Tools</title>
 
 <script src="includes/js/jquery.min.js" ></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="includes/js/autoComplete.js"></script>
+
 <!--CSS Files-------------------->
-<link rel="stylesheet" href="includes/css/normalize.css">
-<link rel="stylesheet" href="includes/css/foundation.css">
+<link rel="stylesheet" href="includes/css/normalize.css" />
+<link rel="stylesheet" href="includes/css/foundation.css" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 
 <!--JS Files--------------------->
 <!--<script type="text/javascript" src="includes/js/angular.min.js"></script>-->
 <script type="text/javascript" src="includes/js/cumtd.js"></script>
-
-
-<!--<style type="text/css">
-  html { height: 100% }
-  body { height: 100%; margin: 0; padding: 0 }
-  #map_canvas { height: 100% }
-</style>-->
 
 </head>
 
@@ -29,25 +26,23 @@
         </div>
     </div>
     <div class="row">
-    	<div class="small-12 large-6 columns">
+    	<div class="small-12 columns">
 			<h3>Get upcoming departure times at a stop</h3>
-			<p>Some stop IDs to try</p>
-			<ul>
-				<li>IT = Illinois terminal</li>
-				<li>IU = Illini Union</li>
-			</ul>
-			<form>
-				<label>Enter stop id
-					<input type="text" placeholder="enter stop" id="stopid"/>
-				</label>
-				<a href="#" id="getDepGo" class="button postfix">Go</a>
-			</form>
+			<label>Start typing a stop name
+				<input type="text" placeholder="enter stop" id="stopQuery"/>
+				<input type="hidden" placeholder="enter stop" name="stopid" id="stopid"/>
+			</label>
+			<a href="#" id="getDepGo" class="button expand">Go</a>			
         </div>
-		<div id="departures" class="small-12 large-6 columns departures">
-			
-		</div>
+	</div>
+    <div class="row">
+		<div id="departures" class="small-12 columns departures"></div>
     </div>
-
+	<script>
+		$( document ).ready(function() {
+			BindAutoComplete($('#stopQuery'), $('#stopid'));
+		});
+	</script>
     <script type="text/javascript" src="includes/js/foundation.min.js"></script>
 </body>
 </html>
